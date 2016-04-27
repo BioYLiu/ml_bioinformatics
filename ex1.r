@@ -3,7 +3,7 @@
 # B. find a way to represent species with string (Omar)
 # C. write the result ".csv" (Omar)
 # D. make the bar plot beautiful (Shinho)
-# E. complete with other species (Shinho)
+# E. complete with other species (Baldomero)
 # F. write the explanation (Baldomero)
 
 # size for testing: default 150
