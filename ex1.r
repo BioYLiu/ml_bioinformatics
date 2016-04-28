@@ -140,3 +140,90 @@ hist(virginica$Petal.Width, col="Turquoise", main="Virginica Petal.Width", xlab=
 # -----------------------------------------------------------------------------
 # assignment f.
 
+# A histogram visualizes a distribution of numerical data. The y-axis shows how 
+# frequently the values on the x-axis occur in the data, the bars represent 
+# ranges of values on the x-axis. 
+# 
+# ---
+#   
+#   Figures description
+# 
+# ---
+# 
+#   Setosa Sepal.Length 
+# 
+# It is observed that the higher frequencies are defined between the range of 4.5 - 5.5,
+# having a maximum frequency approximately of 15 units.
+# 
+#   Versicolor Sepal.Length
+# 
+# This figure shows a maximum frequency of approximately 20 units for Sepal lengths between 
+# the range 5.5. and 6.0.
+# 
+#   Virginica Sepal.Length
+# 
+# Higher frequencies are defined between the range of 6.0 - 6.5, with a frequency of approximately 
+# of 20 units. There is an evenly distribution for values between the range of 7.0 - 8.0, 
+# furthermore there are no Sepals with lengths in a range of 5.0 - 5.5.
+# 
+# ---
+#   
+#   Setosa Sepal.Width 
+# 
+# The frequency reach its maximum of approximately 25 units for values defined between the range 3.0 - 3.5
+# and its minimum between 2.0 - 2.5.
+# 
+#   Versicolor Sepal.Width
+# 
+# Increasing distribution of frequencies is observed between the range 2.0 - 3.0, reaching a maximum
+# of approximately 15 units between the range 2.8 - 3.0.
+# 
+#   Virginica Sepal.Width
+# 
+# This figure shows a maximum frequencies of approximately 15 units for widths between 2.5 and 3.0.
+# 
+# ----
+#   
+#   Setosa Petal.Length
+# 
+# An evenly minimal distribution of frequencies is observed for lengths between the range 1.0 - 1.2
+# and greater than 1.8, the frequencies reach its maximum at a length of around 
+# 1.4 with approximately 15 units.
+# 
+#   Versicolor Petal.Length
+# 
+# It is observed that the maximum frequency is reached between the range of 4.0 - 4.5 with a frequency
+# of a approximately 20 units, whereas the minimum length is between 5.0 - 5.5 with a a frequency of 1 unit.
+# 
+#   Virginica Petal.Length 
+# 
+# One can observe that the maximum frequency is evenly distributed for ranges 5.0 - 5.5 and 5.5 - 6.0 with
+# a maximum frequency of approximately 15 units.
+# 
+# ---
+#   
+#   Setosa Petal.Width
+# 
+# Most of the values of petal width are defined at its very minimum between the range 0.1 - 0.2 with
+# a frequency of approximately 35 units, the minimum is defined between the range 0.4 - 0.6.
+# 
+#   Versicolor Petal.Width
+# 
+# The minimum frequency is defined between the range 1.6 - 1.8, whereas the maximum is defined
+# for widths of 1.2 or 1.3 with a frequency of approximately 15 units.
+# 
+#   Virginica Petal.Width
+# 
+# Most of the frequencies are almost evenly distributed between the range 1.6 - 2.4, reaching their
+# maximum between the range 1.6 - 1.8.
+# 
+# ---
+#   
+#   General Comparison 
+# 
+# Among the three groups of species, Virginica has the higher Sepal lengths frequency for values
+# between 6.0 – 6.5 and Satosa has the maximum Sepal widths for values between 3.0 and 3.5. 
+# 
+# On the other side, Setosa specie presents the minimum Petal lengths with values between 1.0 - 1.8, 
+# on the contrary, Virginica has the maximum petal lengths between the range 5.0 -  6.0. It is clear 
+# to notice that species of type Setosa have the minimum widths of Petals.
