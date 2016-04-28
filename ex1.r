@@ -1,16 +1,11 @@
-##TODO:
-# A. organize code (Shinho)
-# B. find a way to represent species with string (Omar)
-# C. write the result ".csv" (Omar)
-# D. make the bar plot beautiful (Shinho)
-# E. complete with other species (Baldomero)
-# F. write the explanation (Baldomero)
-
 # size for testing: default 150
 size = 150
 
 # -----------------------------------------------------------------------------
 # assignment a
+# Implemented in two ways - using dist(), and using self-created function
+# RESULT: results of both ways are exactly same.
+
 # function for calculating Euclidean Distance
 euclidean_distance <- function(p, q) {
     ed = 0
@@ -24,7 +19,7 @@ euclidean_distance <- function(p, q) {
 data(iris) #load iris data
 iris2 <- iris[-5] # delete column 5 with string
 # compute distances using dist() function
-distances <- dist(head(iris2, size))
+distances <- as.matrix(dist(head(iris2, size)))
 # print(distances)
 
 # compute distances using self-created function
@@ -48,32 +43,33 @@ Nearest.neighbor = c()
 NN.species = c()
 
 for (i in 1:size) {
-
     Flower[i] <- i
-    Species[i] <- levels(iris$Species)[iris[i, 5]]
+    Species[i] <- levels(iris$Species)[iris[i, 5]] # convert the factor to string
 
-    # dirty code
+    # find the nearest neighbor using sort
     line = distances2[i,]
-    nn = sort(line)[2]
+    nn = sort(line)[2] # first one is itself, so choose 2
     index_nn = which(line == nn)
     Nearest.neighbor[i] <- index_nn
     NN.species[i] <- levels(iris$Species)[iris[index_nn, 5]]
 }
 
 data_frame = data.frame(Flower, Species, Nearest.neighbor, NN.species)
-print(data_frame)
-write.csv(data_frame, file = "assig_b_distance.csv")
+#print(data_frame)
+write.csv(data_frame, file = "EX_B_distance.csv")
 
 # -----------------------------------------------------------------------------
 # assignment c
 cc = table ( data_frame$Species, data_frame$NN.species ) [,]
-write.csv(cc, file = "assig_c_distance_3x3.csv")
+write.csv(cc, file = "EX_C_distance_3x3.csv")
 
 # -----------------------------------------------------------------------------
 # assignment d
 # print (cc)
-#barplot(cc, main="blah", xlab="number of neighbors", col=c("darkblue", "red", "gray"),
- #       legend = rownames(counts), beside=TRUE)
+par(mfrow=c())
+barplot(cc, main="Number of Nearest Neighbors", xlab="Species", ylab="Numbers", col=c("darkblue", "red", "gray"), legend = rownames(cc), beside=TRUE)
+
+
 
 # -----------------------------------------------------------------------------
 # assignment e. histograms
