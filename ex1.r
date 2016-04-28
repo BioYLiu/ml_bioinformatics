@@ -12,6 +12,21 @@ size = 150
 # -----------------------------------------------------------------------------
 # assignment a
 # functions
+
+int_to_class <- function(value) {
+
+    value = as.numeric(value)
+
+    if (value == 1) {
+        class = 'setosa'
+    } else if (value == 2) {
+        class = 'versicolor'
+    } else {
+        class = 'virginica'
+    }
+    return(class)
+}
+
 euclidean_distance <- function(p, q) {
     ed = 0
     for (i in 1:4) {
@@ -38,8 +53,6 @@ for (p in 1:size) {
 }
 # print(distances2)
 
-
-
 # -----------------------------------------------------------------------------
 # assignment b
 # data frame
@@ -50,26 +63,28 @@ Nearest.neighbor = c()
 NN.species = c()
 
 for (i in 1:size) {
+
     Flower[i] <- i
-    #Species[i] <- iris[i, 5] # get `Species`
-    Species[i] <- iris[i, 5] # get `Species`
+    Species[i] <- int_to_class( iris[i, 5] )
 
     # dirty code
     line = distances2[i,]
     nn = sort(line)[2]
     index_nn = which(line == nn)
     Nearest.neighbor[i] <- index_nn
-    NN.species[i] <- iris[index_nn, 5] # get `Species`
+    NN.species[i] <- int_to_class( iris[index_nn, 5] ) # get `Species`
 }
 
 data_frame = data.frame(Flower, Species, Nearest.neighbor, NN.species)
 print(data_frame)
-write.csv(data_frame, file = "flowers_distance.csv")
+write.csv(data_frame, file = "assig_b_distance.csv")
 
 # -----------------------------------------------------------------------------
 # assignment c
 # cc = data.frame ( table ( data_frame$Species, data_frame$NN.species ) [,]) 
 cc = table ( data_frame$Species, data_frame$NN.species ) [,]
+
+write.csv(cc, file = "assig_c_distance.csv")
 
 # -----------------------------------------------------------------------------
 # assignment d
