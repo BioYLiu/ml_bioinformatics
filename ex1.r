@@ -11,7 +11,7 @@ size = 150
 
 # -----------------------------------------------------------------------------
 # assignment a
-# functions
+# function for calculating Euclidean Distance
 euclidean_distance <- function(p, q) {
     ed = 0
     for (i in 1:4) {
@@ -21,8 +21,8 @@ euclidean_distance <- function(p, q) {
     return(ed)
 }
 
-data(iris)
-iris2 <- iris[-(5:5)] # delete column 5 with string
+data(iris) #load iris data
+iris2 <- iris[-5] # delete column 5 with string
 # compute distances using dist() function
 distances <- dist(head(iris2, size))
 # print(distances)
