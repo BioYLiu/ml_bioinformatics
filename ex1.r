@@ -74,27 +74,54 @@ cc = table ( data_frame$Species, data_frame$NN.species ) [,]
 # -----------------------------------------------------------------------------
 # assignment d
 # print (cc)
-barplot(cc, main="blah", xlab="number of neighbors", col=c("darkblue", "red", "gray"),
-        legend = rownames(counts), beside=TRUE)
+#barplot(cc, main="blah", xlab="number of neighbors", col=c("darkblue", "red", "gray"),
+ #       legend = rownames(counts), beside=TRUE)
 
 # -----------------------------------------------------------------------------
 # assignment e. histograms
-par(mfrow=c(2, 2))
-virginica <- iris[iris$Species == 'virginica',]
-hist(virginica$Sepal.Length, main="Sepal.Length", xlab="Sepal Length")
-hist(virginica$Sepal.Width, main="Sepal.Width", xlab="Sepal Width")
-hist(virginica$Petal.Length, main="Petal.Length", xlab="Petal Length")
-hist(virginica$Petal.Width, main="Petal.Width", xlab="Petal Width")
 
-for (i in colnames(iris2)) {
+par(mfrow=c(3, 4))
+
+# setosa
+
+setosa <- iris[iris$Species == 'setosa',]
+
+hist(setosa$Sepal.Length, col="Tomato", main="Setosa Sepal.Length", xlab="Sepal Length")
+hist(setosa$Sepal.Width, col="Tomato", main="Setosa Sepal.Width", xlab="Sepal Width")
+hist(setosa$Petal.Length, col="Tomato", main="Setosa Petal.Length", xlab="Petal Length")
+hist(setosa$Petal.Width, col="Tomato", main="Setosa Petal.Width", xlab="Petal Width")
+
+# versicolor
+
+versicolor <- iris[iris$Species == 'versicolor',]
+
+hist(versicolor$Sepal.Length, col="Violet", main="Versicolor Sepal.Length", xlab="Sepal Length")
+hist(versicolor$Sepal.Width, col="Violet", main="Versicolor Sepal.Width", xlab="Sepal Width")
+hist(versicolor$Petal.Length, col="Violet", main="Versicolor Petal.Length", xlab="Petal Length")
+hist(versicolor$Petal.Width, col="Violet", main="Versicolor Petal.Width", xlab="Petal Width")
+
+# virginica
+
+virginica <- iris[iris$Species == 'virginica',]
+
+hist(virginica$Sepal.Length, col="Turquoise", main="Virginica Sepal.Length", xlab="Sepal Length")
+hist(virginica$Sepal.Width, col="Turquoise", main="Virginica Sepal.Width", xlab="Sepal Width")
+hist(virginica$Petal.Length, col="Turquoise", main="Virginica Petal.Length", xlab="Petal Length")
+hist(virginica$Petal.Width, col="Turquoise", main="Virginica Petal.Width", xlab="Petal Width")
+
+
+
+
+#for (i in colnames(iris2)) {
     #in c("Sepal.Length", "Sepal.Width", "Petal.Lenght", "Petal.Width")) {
-    ss <- subset(iris, Species == "setosa", select=c(i))
-    ss <- as.numeric(unlist(setosa))
-    hist(ss, main=i)
+#    ss <- subset(iris, Species == "setosa", select=c(i))
+#    ss <- as.numeric(unlist(setosa))
+#    hist(ss, main=i)
     # virginica <- iris[iris$Species == 'virginica',]
     # hist(virginica$Sepal.Length, main=i)
-}
+#}
 
 
 # -----------------------------------------------------------------------------
 # assignment f.
+
