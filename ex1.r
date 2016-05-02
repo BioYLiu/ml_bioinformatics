@@ -1,3 +1,8 @@
+# Group members (Name, Student ID, E-Mail):
+# 1. Baldomero Valdez,  Valenzuela, 2905175, baldmer.w@gmail.com
+# 2. Omar Trinidad Guti??rrez M??ndez, 2850441, omar.vpa@gmail.com
+# 3. Shinho Kang, 2890169, wis.shinho.kang@gmail.com
+
 # size for testing: default 150
 size = 150
 
