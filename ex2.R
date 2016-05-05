@@ -1,6 +1,6 @@
 #Ex1
 # A : DONE
-# B (Shinho): Need explanation
+# B (Shinho): Need explanation - done
 # C (Baldo): Which differences do you observe? What could be a possible explanation?
 # D (Shinho): labeling
 
@@ -23,16 +23,33 @@ boxplot(setosa[1:4], main="setosa", col=c("red","green","yellow","gray"), names=
 boxplot(versicolor[1:4], main="versicolor", col=c("red","green","yellow","gray"), names=colnames(iris)[1:4])
 boxplot(virginica[1:4], main="virginica", col=c("red","green","yellow","gray"), names=colnames(iris)[1:4])
 
+#------------------------------------------------------
 #task b
 (mean(iris$Sepal.Length) - median(iris$Sepal.Length)) / sd(iris$Sepal.Length)
 (mean(iris$Sepal.Width) - median(iris$Sepal.Width)) / sd(iris$Sepal.Width)
 (mean(iris$Petal.Length) - median(iris$Petal.Length)) / sd(iris$Petal.Length)
 (mean(iris$Petal.Width) - median(iris$Petal.Width)) / sd(iris$Petal.Width)
 
-# hist(iris$Sepal.Length, col="Tomato", main="Sepal.Length", xlab="Sepal Length", breaks=20)
-# hist(iris$Sepal.Width, col="Tomato", main="Sepal.Width", xlab="Sepal Width", breaks=20)
-# hist(iris$Petal.Length, col="Tomato", main="Petal.Length", xlab="Petal Length", breaks=20)
-# hist(iris$Petal.Width, col="Tomato", main="Petal.Width", xlab="Petal Width", breaks=20)
+# EXPLANATION:
+# Distribution Skewness: is a measure of the asymmetry of the probability distribution 
+# of a real-valued random variable about its mean. 
+# The skewness value can be positive or negative, or even undefined.
+# Negative skew: 
+#   Mean is greater than median.
+#   The left tail is longer; the mass of the distribution is concentrated on the right of the figure.
+# Positive skew: 
+#   Mean is less than median.
+#   The right tail is longer; the mass of the distribution is concentrated on the left of the figure.
+  
+# Sepal Length and Width has positive skew.
+# from the below density plot, we can see that the right tail is slightly longer than left tail on 
+# Sepal Length and Width.
+
+# Petal Length and Width has negative skew.
+# from the below density plot of the petal length and width, we can see two hump but the most dense part is 
+# on the right side (slightly).
+
+# we also can say, the absolute of the skewness is bigger, the data is more concentrated on one-side.
 
 d <- density(iris$Sepal.Length) # returns the density data 
 plot(d) # plots the results
@@ -44,10 +61,8 @@ d <- density(iris$Petal.Width) # returns the density data
 plot(d) # plots the results
 
 
-# refer to : https://en.wikipedia.org/wiki/Skewness
-# positive: mean is greater than median.
-# negative: mean is less than median.
 
+#------------------------------------------------------
 # task c
 co <- cor(iris[1:4])
 cor(iris[1:4], method="spearman")
@@ -65,6 +80,9 @@ plot(iris)
 plot(setosa)
 plot(versicolor)
 plot(virginica)
+
+
+#------------------------------------------------------
 #task d
 pdf('my_test.pdf',width=6,height=4,paper='special') 
 
