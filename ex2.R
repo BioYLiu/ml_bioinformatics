@@ -1,7 +1,7 @@
 #Ex1
 # A : DONE
 # B (Shinho): Need explanation
-# C (Baldo): Which differences do you observe? What could be a possible explanation?
+# C : DONE
 # D (Shinho): labeling
 
 #Ex2 (Omar)
@@ -49,29 +49,62 @@ plot(d) # plots the results
 # negative: mean is less than median.
 
 # task c
+
+# Pearson's Correlation
+# 
+# +1: Perfect direct linear relationship (correlation)
+# -1: Perfect decreasing linear relationship (anti-correlation)
+# 0: uncorrelated
+# 
+# One can observe that when considering the whole Iris data set, 
+# there is a decreasing linear relationship between the variables 
+# Petal.Width/Lenght and Sepal.Width, on the contrary there is 
+# an increasing correlation between the variables Sepal.Length 
+# and Petal.Width/Length.
+# 
+# In contrast when every group of species is analyzed
+# individually one can observe that there is only an 
+# increasing correlation. In the case of species type Setosa
+# the correlation between Sepal.Length and Petal.Width/Length 
+# reduces considerably.
+# 
+# One possible explanation for these discrepancies between
+# correlations is the existence/addition of “outliers” affecting
+# the measure when the data is correlated all together and individually.  
+
 co <- cor(iris[1:4])
-cor(iris[1:4], method="spearman")
+corsp <- cor(iris[1:4], method="spearman")
 
 cor(setosa[1:4])
-cor(setosa[1:4], method="spearman")
+corspVetosa <- cor(setosa[1:4], method="spearman")
 
 cor(versicolor[1:4])
-cor(versicolor[1:4], method="spearman")
+corspVersicolor <- cor(versicolor[1:4], method="spearman")
 
 cor(virginica[1:4])
-cor(virginica[1:4], method="spearman")
+corspVirginica <- cor(virginica[1:4], method="spearman")
 
-plot(iris)
-plot(setosa)
-plot(versicolor)
-plot(virginica)
+#plot(iris)
+#plot(setosa)
+#plot(versicolor)
+#plot(virginica)
+
 #task d
 pdf('my_test.pdf',width=6,height=4,paper='special') 
 
-levelplot(cor(iris[1:4]), colorkey = T, region = T, col.regions=heat.colors)
-levelplot(cor(setosa[1:4]), colorkey = T, region = T, col.regions=heat.colors)
-levelplot(cor(versicolor[1:4]), colorkey = T, region = T, col.regions=heat.colors)
-levelplot(cor(virginica[1:4]), colorkey = T, region = T, col.regions=heat.colors)
+# displays Pearson's Correlation
+
+levelplot(cor(iris[1:4]), colorkey = T, region = T, main="Iris data set (Pearson's Correlation)", col.regions=heat.colors)
+levelplot(cor(setosa[1:4]), colorkey = T, region = T, main="Setosa (Pearson's Correlation)", col.regions=heat.colors)
+levelplot(cor(versicolor[1:4]), colorkey = T, region = T, main="Versicolor (Pearson's Correlation)", col.regions=heat.colors)
+levelplot(cor(virginica[1:4]), colorkey = T, region = T, main="Virginica (Pearson's Correlation)", col.regions=heat.colors)
+
+# displays spearman's Correlation
+
+levelplot(corsp, colorkey = T, region = T, main="Iris data set (Spearman's Correlation)", col.regions=heat.colors)
+levelplot(corspVetosa, colorkey = T, region = T, main="Setosa (Spearman's Correlation)", col.regions=heat.colors)
+levelplot(corspVersicolor, colorkey = T, region = T, main="Versicolor (Spearman's Correlation)", col.regions=heat.colors)
+levelplot(corspVirginica, colorkey = T, region = T, main="Virginica (Spearman's Correlation)", col.regions=heat.colors)
 
 dev.off()
 
