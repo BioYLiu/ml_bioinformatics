@@ -1,13 +1,7 @@
-#Ex1
-# A : DONE
-# B (Shinho): Need explanation - done
-# C (Baldo): Which differences do you observe? What could be a possible explanation? - done
-# D (Shinho): labeling
-
-#Ex2 (Omar)
-# A : labeling & comments
-# B : In which cases does the linear regression line give a good fit to the data?
-#  On the basis of the scatter plots, describe the relationship/dependence between and for each data set.
+# Group members (Name, Student ID, E-Mail):
+# 1. Baldomero Valdez,  Valenzuela, 2905175, baldmer.w@gmail.com
+# 2. Omar Trinidad Gutierrez Mendez, 2850441, omar.vpa@gmail.com
+# 3. Shinho Kang, 2890169, wis.shinho.kang@gmail.com
 
 
 #======================================================
@@ -115,10 +109,18 @@ corspVirginica
 
 #------------------------------------------------------
 #task D
-pdf('my_test.pdf',width=8,height=8,paper='special') 
+# using the heat.colors color scheme, 
+# heat map displays correlation matrix values as color.
+# the map is symmetric.
+# color is bright yellow if the value is close to 1.
+# color is red if the value is close to lowest value of the map.
 
-# displays Pearson's Correlation
+# Bacause each matrix has different range of correlation, 
+# each map shows relative difference of correlation in the matrix.
+
+pdf('my_test.pdf',width=8,height=8,paper='special') 
 library("lattice")
+# displays Pearson's Correlation
 levelplot(co, colorkey = T, region = T, main="Iris data set", sub="Pearson's Correlation", 
           col.regions=heat.colors, xlab="", ylab="")
 levelplot(coSetosa, colorkey = T, region = T, main="Setosa", sub="Pearson's Correlation", 
@@ -129,7 +131,6 @@ levelplot(coVirginica, colorkey = T, region = T, main="Virginica", sub="Pearson'
           col.regions=heat.colors, xlab="", ylab="")
 
 # displays spearman's Correlation
-
 levelplot(corsp, colorkey = T, region = T, main="Iris data set", sub="Spearman's Correlation", 
           col.regions=heat.colors, xlab="", ylab="")
 levelplot(corspSetosa, colorkey = T, region = T, main="Setosa", sub="Spearman's Correlation", 
@@ -154,6 +155,8 @@ sdByCol = apply(dat, 2, sd)
 
 meanByCol
 varByCol
+sdByCol
+
 # A-ii
 # calculate correlation between X and Y.
 c1 = cor(dat$x1, dat$y1)
