@@ -1,7 +1,7 @@
 #Ex1
 # A : DONE
 # B (Shinho): Need explanation - done
-# C (Baldo): Which differences do you observe? What could be a possible explanation?
+# C (Baldo): Which differences do you observe? What could be a possible explanation? - done
 # D (Shinho): labeling
 
 #Ex2 (Omar)
@@ -12,7 +12,7 @@
 
 #======================================================
 #Ex 1
-#task a
+#task A
 iris
 colnames(iris)[1:4]
 
@@ -24,12 +24,7 @@ boxplot(versicolor[1:4], main="versicolor", col=c("red","green","yellow","gray")
 boxplot(virginica[1:4], main="virginica", col=c("red","green","yellow","gray"), names=colnames(iris)[1:4])
 
 #------------------------------------------------------
-#task b
-(mean(iris$Sepal.Length) - median(iris$Sepal.Length)) / sd(iris$Sepal.Length)
-(mean(iris$Sepal.Width) - median(iris$Sepal.Width)) / sd(iris$Sepal.Width)
-(mean(iris$Petal.Length) - median(iris$Petal.Length)) / sd(iris$Petal.Length)
-(mean(iris$Petal.Width) - median(iris$Petal.Width)) / sd(iris$Petal.Width)
-
+#task B
 # EXPLANATION:
 # Distribution Skewness: is a measure of the asymmetry of the probability distribution 
 # of a real-valued random variable about its mean. 
@@ -40,7 +35,7 @@ boxplot(virginica[1:4], main="virginica", col=c("red","green","yellow","gray"), 
 # Positive skew: 
 #   Mean is less than median.
 #   The right tail is longer; the mass of the distribution is concentrated on the left of the figure.
-  
+
 # Sepal Length and Width has positive skew.
 # from the below density plot, we can see that the right tail is slightly longer than left tail on 
 # Sepal Length and Width.
@@ -50,6 +45,11 @@ boxplot(virginica[1:4], main="virginica", col=c("red","green","yellow","gray"), 
 # on the right side (slightly).
 
 # we also can say, the absolute of the skewness is bigger, the data is more concentrated on one-side.
+
+(mean(iris$Sepal.Length) - median(iris$Sepal.Length)) / sd(iris$Sepal.Length)
+(mean(iris$Sepal.Width) - median(iris$Sepal.Width)) / sd(iris$Sepal.Width)
+(mean(iris$Petal.Length) - median(iris$Petal.Length)) / sd(iris$Petal.Length)
+(mean(iris$Petal.Width) - median(iris$Petal.Width)) / sd(iris$Petal.Width)
 
 d <- density(iris$Sepal.Length) # returns the density data 
 plot(d) # plots the results
@@ -63,33 +63,81 @@ plot(d) # plots the results
 
 
 #------------------------------------------------------
-# task c
+# task C
+
+# Pearson's Correlation
+# 
+# +1: Perfect direct linear relationship (correlation)
+# -1: Perfect decreasing linear relationship (anti-correlation)
+# 0: uncorrelated
+# 
+# One can observe that when considering the whole Iris data set, 
+# there is a decreasing linear relationship between the variables 
+# Petal.Width/Lenght and Sepal.Width, on the contrary there is 
+# an increasing correlation between the variables Sepal.Length 
+# and Petal.Width/Length.
+# 
+# In contrast when every group of species is analyzed
+# individually one can observe that there is only an 
+# increasing correlation. In the case of species type Setosa
+# the correlation between Sepal.Length and Petal.Width/Length 
+# reduces considerably.
+# 
+# One possible explanation for these discrepancies between
+# correlations is the existence/addition of ???outliers??? affecting
+# the measure when the data is correlated all together and individually.  
+
 co <- cor(iris[1:4])
-cor(iris[1:4], method="spearman")
+corsp <- cor(iris[1:4], method="spearman")
 
-cor(setosa[1:4])
-cor(setosa[1:4], method="spearman")
+coSetosa <- cor(setosa[1:4])
+corspSetosa <- cor(setosa[1:4], method="spearman")
 
-cor(versicolor[1:4])
-cor(versicolor[1:4], method="spearman")
+coVersicolor <- cor(versicolor[1:4])
+corspVersicolor <- cor(versicolor[1:4], method="spearman")
 
-cor(virginica[1:4])
-cor(virginica[1:4], method="spearman")
+coVirginica <- cor(virginica[1:4])
+corspVirginica <- cor(virginica[1:4], method="spearman")
 
-plot(iris)
-plot(setosa)
-plot(versicolor)
-plot(virginica)
+co
+corsp
+coSetosa
+corspSetosa
+coVersicolor
+corspVersicolor
+coVirginica
+corspVirginica
 
+#plot(iris)
+#plot(setosa)
+#plot(versicolor)
+#plot(virginica)
 
 #------------------------------------------------------
-#task d
-pdf('my_test.pdf',width=6,height=4,paper='special') 
+#task D
+pdf('my_test.pdf',width=8,height=8,paper='special') 
 
-levelplot(cor(iris[1:4]), colorkey = T, region = T, col.regions=heat.colors)
-levelplot(cor(setosa[1:4]), colorkey = T, region = T, col.regions=heat.colors)
-levelplot(cor(versicolor[1:4]), colorkey = T, region = T, col.regions=heat.colors)
-levelplot(cor(virginica[1:4]), colorkey = T, region = T, col.regions=heat.colors)
+# displays Pearson's Correlation
+library("lattice")
+levelplot(co, colorkey = T, region = T, main="Iris data set", sub="Pearson's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
+levelplot(coSetosa, colorkey = T, region = T, main="Setosa", sub="Pearson's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
+levelplot(coVersicolor, colorkey = T, region = T, main="Versicolor", sub="Pearson's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
+levelplot(coVirginica, colorkey = T, region = T, main="Virginica", sub="Pearson's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
+
+# displays spearman's Correlation
+
+levelplot(corsp, colorkey = T, region = T, main="Iris data set", sub="Spearman's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
+levelplot(corspSetosa, colorkey = T, region = T, main="Setosa", sub="Spearman's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
+levelplot(corspVersicolor, colorkey = T, region = T, main="Versicolor", sub="Spearman's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
+levelplot(corspVirginica, colorkey = T, region = T, main="Virginica", sub="Spearman's Correlation", 
+          col.regions=heat.colors, xlab="", ylab="")
 
 dev.off()
 
