@@ -199,16 +199,16 @@ a4 <- meanByCol[8] - (b1 * meanByCol[7])
 
 plot(dat$x1, dat$y1, xlim=c(0, 20), ylim=c(-5,15), xlab="X1", ylab="Y1", main="X1-Y1 scatterplot")
 abline(a=a1, b=b1, col="red")
-#abline(lm(dat$y1~dat$x1), col="blue")
+abline(lm(dat$y1~dat$x1), col="blue")
 
 plot(dat$x2, dat$y2, xlim=c(0, 20), ylim=c(-5,15), xlab="X2", ylab="Y2", main="X2-Y2 scatterplot")
 abline(a=a2, b=b2, col="red")
-#abline(lm(dat$y2~dat$x2), col="blue")
+abline(lm(dat$y2~dat$x2), col="blue")
 
 plot(dat$x3, dat$y3, xlim=c(0, 20), ylim=c(-5,15), xlab="X3", ylab="Y3", main="X3-Y3 scatterplot")
 abline(a=a3, b=b3, col="red")
-#abline(lm(dat$y3~dat$x3), col="blue")
+abline(lm(dat$y3~dat$x3), col="blue")
 
 plot(dat$x4, dat$y4, xlim=c(0, 20), ylim=c(-5,15), xlab="X4", ylab="Y4", main="X4-Y4 scatterplot")
 abline(a=a4, b=b4, col="red")
-#abline(lm(dat$y4~dat$x4), col="blue")
+abline(lm(dat$y4~dat$x4), col="blue")

@@ -53,8 +53,10 @@ for (i in 1:size) {
 
     # find the nearest neighbor using sort
     line = distances2[i,]
-    nn = sort(line)[2] # first one is itself, so choose 2
-    index_nn = which(line == nn)
+    index_nn = order(line[-i])[1]
+    print (order(line))
+    # nn = sort(line)[2] # first one is itself, so choose 2
+    # index_nn = which(line == nn)
     Nearest.neighbor[i] <- index_nn
     NN.species[i] <- levels(iris$Species)[iris[index_nn, 5]]
 }
@@ -65,6 +67,8 @@ write.csv(data_frame, file = "EX_B_distance.csv")
 
 # -----------------------------------------------------------------------------
 # assignment c
+percent.matrix.x <- table(data_frame$Species, data_frame$NN.species)
+
 cc = table ( data_frame$Species, data_frame$NN.species ) [,]
 write.csv(cc, file = "EX_C_distance_3x3.csv")
 
