@@ -50,12 +50,12 @@ multinom <- function(m, p, n) {
   print ('=============================')
   print ('Sample Mean')
   print (apply(m, 2, mean))
-  
+  #apply(m,1,function(x) sum(x*c(1,2,3,4,5,6))/n)
   
   #   - the sample covariance matrix (R function cov)
   print ('=============================')
   print ('Sample Covariance Matrix')
-  print (cov(m))
+  print (cov(t(m)))
   
   #   - the value of the probability mass function for each sample (Tip: you can use R function dmultinom)
   print ('=============================')
