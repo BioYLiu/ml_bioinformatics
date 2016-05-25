@@ -61,3 +61,44 @@ mean = meanGolub[difference[1:5]]
 standard_deviation = sdGolub[difference[1:5]]
 data_frame = data.frame(names, mean, standard_deviation)
 write.csv(data_frame, file = "Ex4 2b iv.csv")
+
+
+# 2c. Select gene 1042
+geneCCND3 = split(golub[1042, ], glb.fac)
+
+# i. Boxplot for the expression data
+'boxplot(golub[1042,] ~ glb.fac,
+        main="Boxplot GeneCCND3",
+        xlab="Class",
+        ylab="Expression",
+        col=c("tomato", "green")
+        )'
+
+# ii. Q-Q plot with theoretical normal distribution
+#par(mfrow=c(1, 2))
+
+#qqnorm(geneCCND3$ALL)
+#qqline(geneCCND3$ALL)
+#qqnorm(geneCCND3$AML)
+#qqline(geneCCND3$AML)
+
+# iii. We have to apply the unpaired two-sample t-test (page 94).
+# we can see that the size and variance of the two groups are different:
+# length(geneCCND3$AML) == length(geneCCND3$ALL)
+# var(geneCCND3$AML) == var(geneCCND3$ALL)
+# so, we can apply the Welch t-test
+
+ttest = t.test(geneCCND3$AML, geneCCND3$ALL)
+
+# iv. Use a non-parametric test. The Kolmogorov-Smirnov test
+kolmogorov = ks.test(geneCCND3$AML, geneCCND3$ALL)
+
+# Shapiro-wilk test
+a = shapiro.test(geneCCND3$AML)
+b = shapiro.test(geneCCND3$ALL)
+
+# 2d. Perform t-test for all genes comparing the distributions for ALL and AML.
+# improve this section
+pvalues <- apply(golub, 1, function(x) t.test(x ~ glb.fac)$p.value)
+
+pvalues > 0.05
