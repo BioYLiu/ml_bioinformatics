@@ -7,7 +7,7 @@ Group members (Name, Student ID, E-Mail):
 * Omar Trinidad Gutierrez Mendez, 2850441, omar.vpa@gmail.com
 * Baldomero Valdez,  Valenzuela, 2905175, baldmer.w@gmail.com
 
-## Exercise Series 2
+## Exercise Series 4
 
 **Task 1:**
 
@@ -225,7 +225,9 @@ hypothesis.**
 **Result:**
 
     [1] "Genes with significant differences are in total:" 103
-
+<br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/>
 **Task 3:**
 
     #=========================================
