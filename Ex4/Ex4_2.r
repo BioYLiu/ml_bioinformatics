@@ -9,7 +9,7 @@
 # source("https://bioconductor.org/biocLite.R")
 # biocLite("multtest")
 
-setwd("~/current-lectures/ml_bioinformatics/Ex4/")
+setwd("~/Workspace/UniBonn/2016_SS/ml_bio/repo/Ex4/")
 library(multtest)
 data(golub)
 

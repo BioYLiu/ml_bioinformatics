@@ -78,6 +78,6 @@ p <- c(0.2,0.4/3,0.2,0.4/3,0.4/3,0.2)
 # number of trials
 n <- 10
 # sample matrix - 50 random drawings from the multinomial distribution, transpose the matrix (row=sample vector)
-m<-t(rmultinom(1000, n, p))
+m<-t(rmultinom(10, n, p))
 
 multinom(m,p,n)

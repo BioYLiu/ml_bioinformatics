@@ -19,6 +19,7 @@ se <- sample.sd / sqrt(n)
 t.qt <- qt(0.025, n-1)
 interval <- c(sample.mean + se*t.qt, sample.mean - se*t.qt)
 size <- interval[2] - interval[1]
+size.directly.calc <- se * qt(c(0.025,0.975))
 # => interval: [3.130835, 4.869165]
 # => size: [1.73833]
 
