@@ -1,3 +1,9 @@
+# Group members (Name, Student ID, E-Mail):
+# 1. Baldomero Valdez,  Valenzuela, 2905175, baldmer.w@gmail.com
+# 2. Omar Trinidad Gutierrez Mendez, 2850441, omar.vpa@gmail.com
+# 3. Shinho Kang, 2890169, wis.shinho.kang@gmail.com
+
+
 # Implement a R function multinom, which takes as arguments
 #   i) a sample matrix (each row being one sample vector)
 #   ii) a probability parameter vector p for a multinomial distribution 
@@ -50,7 +56,7 @@ multinom <- function(m, p, n) {
   print ('=============================')
   print ('Sample Mean')
   print (apply(m, 2, mean))
-  
+  #apply(m,1,function(x) sum(x*c(1,2,3,4,5,6))/n)
   
   #   - the sample covariance matrix (R function cov)
   print ('=============================')
@@ -63,7 +69,7 @@ multinom <- function(m, p, n) {
   print (apply(m, 1, function(x) dmultinom(x, prob=p)))
   
   # visualizing p
-  barplot(p)
+  barplot(p, xlab = "value", ylab="probability", axisnames = T, names.arg = c(1,2,3,4,5,6))
 }
 
 
@@ -72,6 +78,6 @@ p <- c(0.2,0.4/3,0.2,0.4/3,0.4/3,0.2)
 # number of trials
 n <- 10
 # sample matrix - 50 random drawings from the multinomial distribution, transpose the matrix (row=sample vector)
-m<-t(rmultinom(50, n, p))
+m<-t(rmultinom(1000, n, p))
 
 multinom(m,p,n)
