@@ -1,3 +1,8 @@
+# Group members (Name, Student ID, E-Mail):
+# 1. Baldomero Valdez,  Valenzuela, 2905175, baldmer.w@gmail.com
+# 2. Omar Trinidad Gutierrez Mendez, 2850441, omar.vpa@gmail.com
+# 3. Shinho Kang, 2890169, wis.shinho.kang@gmail.com
+
 preg.week = c(18,24,30,34,40)
 elt.year = c(18,26,30,40,70)
 
