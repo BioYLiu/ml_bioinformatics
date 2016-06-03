@@ -1,6 +1,5 @@
 
 # 5.4
-
 # preparing the data for ANOVA analysis, the data is needed in long format
 
 measures <- c(
