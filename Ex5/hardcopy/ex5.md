@@ -110,16 +110,13 @@ Group members (Name, Student ID, E-Mail):
 <img src="task3.png" style="width: 850px;"/>
 
     par(mfrow=c(4, 3))
-
     labels = names(iris)[-5]
     indexes = c(1:4)
     for (x in indexes) {
         for (y in indexes) {
             if (x != y) {
-
                 a = training.ds[,x]
                 b = training.ds[,y]
-
                 plot(a~b,
                      pch = 22,
                      bg = c('red', 'green', 'blue')[unclass(iris$Species)],
@@ -133,7 +130,6 @@ Group members (Name, Student ID, E-Mail):
             }
         }
     }
-
 
     # Because each of the plots show a correlation between the columns we can
     # conclude that one of the predictors can be expressed as a linear combination
