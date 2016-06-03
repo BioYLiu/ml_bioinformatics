@@ -172,18 +172,15 @@ Group members (Name, Student ID, E-Mail):
     # Coefficients:
     #  (Intercept)            gene$cellLine                    gene$stim  
     # 3.2000 (1st group avg)  -1.4000 (diff 2nd group to 1st)  -0.2333 (diff 3rd group to 1st) 
-    
     # Analysis of Variance
     # group means are not significantly different
-    
     # null hypothesis: there is no difference across the levels of cell line/stim,
     # reject if Pr(>F) is highly significant. 
-    
+
     # Both hypothesis could not be rejected.
     
     #aov2 <- aov(measures~cellLine+stim+cellLine:stim, data=gene)
     #summary(aov2)
-    
     anova(fit)
     
     # residual interaction between cellLine and stim
@@ -192,7 +189,5 @@ Group members (Name, Student ID, E-Mail):
     # difference between observed values and fitted values
     
     residuals(fit)
-    
     #summary(fit)
-    
     plot(fit)
