@@ -38,6 +38,14 @@ for (x in indexes) {
 }
 dev.off()
 
+data(iris)
+summary (lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data=iris ))
+summary (lm(Sepal.Width ~ Sepal.Length + Petal.Length + Petal.Width, data=iris ))
+summary (lm(Petal.Length ~ Sepal.Length + Sepal.Width + Petal.Width, data=iris ))
+summary (lm(Petal.Width ~ Sepal.Length + Sepal.Width + Petal.Length, data=iris ))
+
+summary (lm(Petal.Width ~ Sepal.Width + Petal.Length, data=iris ))
+
 # Because each of the plots show a correlation between the columns we can
 # conclude that one of the predictors can be expressed as a linear combination
 # of the others.

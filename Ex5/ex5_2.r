@@ -13,8 +13,8 @@ data(iris)
 
 # shuffle the dataset and get training and test dataset
 shuffled.iris <- iris[sample(1:nrow(iris)), ]
-test.ds <- shuffled.iris[1:30,]
-training.ds <- shuffled.iris[31:150,]
+test.ds <- shuffled.iris[1:10,]
+training.ds <- shuffled.iris[11:150,]
 
 formula <- Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width
 multinomial.model <- multinom(formula, training.ds)
@@ -37,12 +37,12 @@ e = predict(multinomial.model)
 
 # for setosa
 setosa.ds = shuffled.iris
-training.setosa <- setosa.ds[31:150,]
+training.setosa <- setosa.ds[11:150,]
 newcol <- data.frame(isSetosa=(training.setosa$Species == 'setosa'))
 training.setosa <- cbind(training.setosa, newcol)
 
-formula <- isSetosa ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width
-model.setosa <- glm(formula, data=training.setosa, family='binomial')
+formula <- isSetosa ~ . #Sepal.Length + Sepal.Width + Petal.Length + Petal.Width
+model.setosa <- glm(formula, data=training.setosa, family='binomial', control = list(maxit=140))
 print(model.setosa)
 #Call:  glm(formula = formula, family = "binomial", data = training.setosa)
 #
@@ -57,7 +57,7 @@ e = predict(model.setosa, newdata=test.ds, type='response')
 
 # for versicolor
 versicolor.ds = shuffled.iris
-training.versicolor <- versicolor.ds[31:150,]
+training.versicolor <- versicolor.ds[11:150,]
 newcol <- data.frame(isVersicolor=(training.versicolor$Species == 'versicolor'))
 training.versicolor <- cbind(training.versicolor, newcol)
 
@@ -77,7 +77,7 @@ e = predict(model.versicolor, newdata=test.ds, type='response')
 
 # for virginica
 virginica.ds = shuffled.iris
-training.virginica <- virginica.ds[31:150,]
+training.virginica <- virginica.ds[11:150,]
 newcol <- data.frame(isVirginica=(training.virginica$Species == 'virginica'))
 training.virginica <- cbind(training.virginica, newcol)
 

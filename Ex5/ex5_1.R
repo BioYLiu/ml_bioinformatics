@@ -29,7 +29,7 @@ preg.elt.cov = 1/4*sum((preg.week-preg.week.mean)*(elt.year-elt.year.mean))
 #   => Beta = Cov(x,y) / Var(x), Beta_0 = mean(y) - Beta*mean(x)
 # here, x is preg.week, y is elt.year.
 beta = preg.elt.cov / preg.week.var # 2.169399
-beta_0 = elt.year.mean - beta*preg.week.mean # 26.54645
+beta_0 = elt.year.mean - beta*preg.week.mean # -26.54645
 #summary(lm(elt.year~preg.week))
 
 #======================================
@@ -46,3 +46,4 @@ se.beta = sqrt(residual.variance / (4*preg.week.var) ) # 0.5343376
 # d) 95% confidence interval for the slope coefficient.
 # [Beta - se(Beta)*abs(qt(0.025, n-2)), Beta + se(Beta)*abs(qt(0.025, n-2))]
 interval =  beta + se.beta * qt(c(0.025, 0.975), 3) # 0.4688983 3.8698995
+interval2 = beta - se.beta * t(0.975, 3)

@@ -28,10 +28,12 @@ boxplot(gene$measures~gene$cellLine*gene$stim)
 #tapply(gene$measures, list(stim), mean)
 #tapply(gene$measures, list(cellLine), mean)
 #tapply(gene$measures, list(stim, cellLine), mean)
-
-fit <- lm(gene$measures~gene$cellLine*gene$stim)
-fit
-
+# A)
+fit1 <- lm(gene$measures~gene$cellLine)
+#fit <- lm(gene$measures~gene$cellLine*gene$stim)
+fit1
+fit2 <- lm(gene$measures~gene$stim)
+fit2
 # Coefficients:
 #  (Intercept)            gene$cellLine                    gene$stim  
 # 3.2000 (1st group avg)  -1.4000 (diff 2nd group to 1st)  -0.2333 (diff 3rd group to 1st) 
@@ -47,16 +49,20 @@ fit
 #aov2 <- aov(measures~cellLine+stim+cellLine:stim, data=gene)
 #summary(aov2)
 
-anova(fit)
-
+anova(fit1)
 # residual interaction between cellLine and stim
 # boxplot(residuals(fit)~cellLine*stim)
 
 # difference between observed values and fitted values
-
-residuals(fit)
-
+residuals(fit1)
 #summary(fit)
+plot(fit1)
 
-plot(fit)
+anovamodel <- anova(fit2)
+residuals(fit2)
+#summary(fit)
+plot(fit2)
 
+# B)
+fit <- lm(gene$measures~gene$cellLine*gene$stim)
+print(summary(anovamodel))
