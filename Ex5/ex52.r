@@ -22,8 +22,8 @@ print(multinomial.model)
 #versicolor    15.78584    -5.753264   -6.333713     12.78611   -2.309163
 #virginica    -22.61359    -8.586707  -12.026601     22.15053   13.246169
 #
-#Residual Deviance: 11.38084 
-#AIC: 31.38084 
+#Residual Deviance: 11.38084
+#AIC: 31.38084
 
 e = predict(multinomial.model)
 
@@ -41,11 +41,11 @@ print(model.setosa)
 #Call:  glm(formula = formula, family = "binomial", data = training.setosa)
 #
 #Coefficients:
-# (Intercept)  Sepal.Length   Sepal.Width  Petal.Length   Petal.Width  
-#       8.083         4.034        11.240       -22.097        -4.758  
+# (Intercept)  Sepal.Length   Sepal.Width  Petal.Length   Petal.Width
+#       8.083         4.034        11.240       -22.097        -4.758
 #
 #Degrees of Freedom: 119 Total (i.e. Null);  115 Residual
-#Null Deviance:      152.8 
+#Null Deviance:      152.8
 #Residual Deviance: 2.285e-09    AIC: 10
 e = predict(model.setosa, newdata=test.ds, type='response')
 
@@ -61,11 +61,11 @@ print(model.versicolor)
 #Call:  glm(formula = formula, family = "binomial", data = training.versicolor)
 #
 #Coefficients:
-# (Intercept)  Sepal.Length   Sepal.Width  Petal.Length   Petal.Width  
-#      7.7785       -0.3307       -2.7866        1.2605       -2.5890  
+# (Intercept)  Sepal.Length   Sepal.Width  Petal.Length   Petal.Width
+#      7.7785       -0.3307       -2.7866        1.2605       -2.5890
 #
 #Degrees of Freedom: 119 Total (i.e. Null);  115 Residual
-#Null Deviance:      152.8 
+#Null Deviance:      152.8
 #Residual Deviance: 115.4        AIC: 125.4
 e = predict(model.versicolor, newdata=test.ds, type='response')
 
@@ -82,11 +82,11 @@ print(model.virginica)
 #Call:  glm(formula = formula, family = "binomial", data = training.virginica)
 #
 #Coefficients:
-# (Intercept)  Sepal.Length   Sepal.Width  Petal.Length   Petal.Width  
-#     -38.802        -2.830        -5.672         9.420        15.584  
+# (Intercept)  Sepal.Length   Sepal.Width  Petal.Length   Petal.Width
+#     -38.802        -2.830        -5.672         9.420        15.584
 #
 #Degrees of Freedom: 119 Total (i.e. Null);  115 Residual
-#Null Deviance:      152.8 
+#Null Deviance:      152.8
 #Residual Deviance: 11.38        AIC: 21.38
 e = predict(model.virginica, newdata=test.ds, type='response')
 
