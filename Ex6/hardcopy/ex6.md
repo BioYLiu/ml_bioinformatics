@@ -25,7 +25,7 @@ Group members (Name, Student ID, E-Mail):
 	
 	> print(colon.pca$rotation[1:5, 1:5])
 
-<img src="1a.png" style="width: 400px;"/>
+<img src="./1a.png" style="width: 400px;"/>
 
 #### B) 2D PCA plot from normal patients and patients with cancer
 
