@@ -43,7 +43,7 @@ Group members (Name, Student ID, E-Mail):
 	# colon.pca contains a `sdev` component
 	screeplot(colon.pca, npcs = 62)
 
-<img src="1c.png" style="width: 250px;"/>
+<img src="1c.png" style="width: 200px;"/>
 
 #### D) principal components analysis
 	summary(colon.pca)
