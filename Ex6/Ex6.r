@@ -1,3 +1,8 @@
+#Group members (Name, Student ID, E-Mail):  
+  
+# * Baldomero Valdez,  Valenzuela, 2905175, baldmer.w@gmail.com
+# * Omar Trinidad Gutierrez Mendez, 2850441, omar.vpa@gmail.com
+# * Shinho Kang, 2890169, wis.shinho.kang@gmail.com
 
 # install package colonCA (as root in Ubuntu)
 # > source("https://bioconductor.org/biocLite.R")
@@ -25,15 +30,14 @@ colon.pca = prcomp(colon.ds,
 # 1b. 2D PCA plot from normal patients and patients with cancer (_____ / 4)
 # What do you observe?
 
-par(mfrow=c(1, 2))
+par(mfrow=c(1, 1))
 
 negative = apply(colon.pca$rotation[, colonCA$class == 'n'], 1, sum)
 positive = apply(colon.pca$rotation[, colonCA$class == 't'], 1, sum)
 
 plot(negative ~ positive,
      pch = 21,
-     bg = c('red', 'green')[unclass(colonCA$class)],
-    )
+     bg = c('red', 'green')[unclass(colonCA$class)])
 
 # 1c. screeplot of eigenvalues (_____ / 2)
 # colon.pca contains a `sdev` component
