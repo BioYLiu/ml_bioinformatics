@@ -18,16 +18,22 @@ library(EMA)
 # biocLite("AnnotationDbi")
 # install.packages("EMA")
 
+
+# Task 1A
 # colonCA dataset is an ExpressionSet object
 data(colonCA)
-colon.ds = log(exprs(colonCA))
-colon.ds = as.data.frame(colon.ds)
+colon.ds <- log(exprs(colonCA))
 
-pvalues <- apply(colon.ds, 1,
-                 function(x) t.test(x ~ colonCA$class)$p.value)
+pvalues <- apply(colon.ds, 1, function(x) {
+  return (t.test(x[colonCA$class=='t'], x[colonCA$class=='n'])$p.value)
+})
+                   
 alpha = 0.0001
-diff.exp = colon.ds[pvalues <= alpha,]
+result <- pvalues[pvalues <= alpha]
 
+
+# Task 1B
+diff.exp = colon.ds[pvalues <= alpha,]
 cluster.complete.genes = clustering(diff.exp, metric="pearson",  method = "complete")
 cluster.complete.samples = clustering(t(diff.exp), metric="pearson",  method = "complete")
 
