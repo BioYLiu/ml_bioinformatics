@@ -117,3 +117,65 @@ If one of the features has a range of values much larger than the others, cluste
 
 
 **E) silhouettes**
+
+## Task 8:
+
+**1.a**
+
+	library(GSVAdata)
+	data(gbm_VerhaakEtAl)
+	
+	# gbm_eset
+	# head(pData(gbm_eset))
+	
+	# get genes expressions, the matrix is already in the proper format.
+	
+	data_gbm = exprs(gbm_eset)
+	# data_gbm[1:5,1:3]
+	
+	# For the purpose of selecting the most informative genes for class detection,
+	# we reduce the dataset to the top 2,000 most variable genes, measured by median
+	# absolute deviation. 
+	
+	mads = apply(data_gbm,1,mad)
+	data_gbm = data_gbm[rev(order(mads))[1:2000],]
+
+**result**
+
+	GABRB1                    0.88844            -0.07679
+	CHI3L2                    0.26796             0.25706
+	AQP1                     -0.58220            -0.50364
+	SNAP25                   -0.27376            -2.00055
+	FCGR2B                    1.16052            -0.03571
+	CXCL10                    0.06882            -0.40070
+	CXCL14                    0.27617             0.86518
+	PLA2G5                    0.16101             1.20059
+	MMP7                      0.68311            -0.28043
+	 [ reached getOption("max.print") -- omitted 1943 rows ]
+	 
+
+**2.a**
+
+	data(leukemia)
+	leukemia_eset
+	
+	# get gene expressions
+	
+	data_leukemia = exprs(leukemia_eset)
+	# data_leukemia[1:5,1:3]
+	
+	# Prioritize the gene expressions based on their median absolute deviation (MAD) and
+	# select the 2000 top genes
+	
+	mads = apply(data_leukemia,1,mad)
+	data_leukemia = data_leukemia[rev(order(mads))[1:2000],]
+
+** result
+
+	33781_s_at                            9.281447
+	40790_at                             11.597086
+	39932_at                              9.952415
+	33500_i_at                           12.874146
+	1226_at                               7.853077
+	32434_at                              6.916666
+	 [ reached getOption("max.print") -- omitted 1730 rows ]

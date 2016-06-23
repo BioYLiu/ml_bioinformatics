@@ -4,9 +4,15 @@
 # * Omar Trinidad Gutierrez Mendez, 2850441, omar.vpa@gmail.com
 # * Shinho Kang, 2890169, wis.shinho.kang@gmail.com
 
-library(GSVAdata)
-library(GSVA)
+#source("https://bioconductor.org/biocLite.R")
+#biocLite("ConsensusClusterPlus")
+#biocLite("GSVAdata")
 
+
+library(GSVAdata)
+#library(GSVA)
+
+#=============================
 # 1.a
 
 data(gbm_VerhaakEtAl)
@@ -29,6 +35,9 @@ data_gbm = data_gbm[rev(order(mads))[1:2000],]
 data_gbm
 
 
+
+
+#========================
 # 2.a
 
 data(leukemia)
