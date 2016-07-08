@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+
+% enumerate
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+
+% itemize
+\renewcommand{\labelitemi}{}
+\renewcommand{\labelitemii}{$\Rightarrow$}
+
+% argmax
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{wasysym}
+\usepackage{bera}
+\usepackage{tikz}
+\usepackage{multicol}
+\usetikzlibrary{calc, shapes.geometric}
+
+\title{Uebung 10}
+\author{Shinho Kang\\Baldomero Valdez\\Omar Guti\'errez}
+\date{\today}
+
+\newcommand{\mn}[2]{%
+   \tikz [remember picture, baseline = (#1.base)]
+      \node [inner sep = 0pt, outer sep = 2mm] (#1)
+         {$\displaystyle#2$};
+}
+
+% no indentation
+\setlength{\parindent}{0cm}
+
+\setlength{\jot}{25pt}
+\pagestyle{empty}
+
+\tikzstyle{deletion}=[shape=circle,draw=black]
+\tikzstyle{square}=[shape=rectangle,draw=black]
+\tikzstyle{match}=[shape=rectangle,draw=black]
+\tikzstyle{l}=[draw,-latex]
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}[
+\textbf{Exercise 1} Derive the consensus sequence and define match states for a
+profile HMM accordingly, only columns with >50\% nucleotides are modeled.
+(\_/3)
+]
+
+Consensus sequence:
+
+\begin{tabular}{ l l l l l l}
+G & C & - & C & T & C \\
+G & C & T & - & T & C \\
+- & C & - & C & - & A \\
+G & - & - & - & T & C \\
+A & C & - & C & T & - \\ \hline
+\textbf{G} & \textbf{C} & \textbf{-} & \textbf{C} & \textbf{T} & \textbf{C}
+\end{tabular}
+
+State annotation:
+
+\begin{tabular}{ l l l l l l}
+M & M & D & M & M & M \\
+M & M & I & D & M & M \\
+D & M & D & M & D & M \\
+M & D & D & D & M & M \\
+M & M & D & M & M & D \\ \hline
+\textbf{0} & \textbf{1} & \textbf{.} & \textbf{2} & \textbf{3} & \textbf{4}
+\end{tabular}
+
+\end{multicols}
+
+\input{hmm.tex}
+
+%$$\hat{b}_{za} = \dfrac{B_{za}}{\sum\limits_{e \in \sum} B_{ze}} $$
+%$$\hat{a}_{kl} = \dfrac{A_{kl}}{\sum\limits_{r \in Q} A_{kr}} $$
+
+\end{document}
